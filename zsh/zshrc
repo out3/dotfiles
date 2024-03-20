@@ -1,0 +1,91 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Function to check if a package is installed
+is_installed() {
+     dpkg --verify "$1" 2>/dev/null
+}
+
+# PrivateZSH
+if [[ -r "~/.zsh.private" ]]; then
+  source ~/.zsh.private
+fi
+
+# ZSH + Theme
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+source $ZSH/oh-my-zsh.sh
+
+# Plugin
+unsetopt correct_all
+setopt correct
+
+plugins=(
+	git
+	fzf # Search : CTRL+T file completion; ALT+C cd
+)
+
+# PATH
+export PATH=$HOME/.local/bin:$PATH
+
+# Custom aliase
+alias path="tr ':' '\n' <<< \"$PATH\"" # Display path line by line
+alias ..="cd .."
+alias ...="cd ../.."
+
+if is_installed "exa"; then
+  alias ls="exa -g --icons" # Colored ls
+  alias ll="ls -l" # Format
+  alias la="ls -la" # Diplay hidden files
+  alias ld="ls -ld */" # Display directories only
+else
+  echo "exa is not installed"
+fi
+
+if is_installed "fd-find"; then
+  alias fd="fdfind" # Better find, used by FZF
+else
+  echo "fd-find is not installed"
+fi
+
+# Custom export
+export DEV="$HOME/developer"
+
+# Python
+## VirtualEnvWrapper
+export WORKON_HOME=$HOME/.env.python
+export VIRTUALENVWRAPPER_PYTHON=$(which python3.11)
+if [[ -r "~/.local/bin/virtualenvwrapper.sh" ]]; then
+  source ~/.local/bin/virtualenvwrapper.sh
+fi
+
+# PNPM
+export PNPM_HOME=$HOME/.env.pnpm
+export PATH=$PNPM_HOME:$PATH
+
+# Cargo (Rust)
+if [[ -r "~/.cargo/env" ]]; then
+  source ~/.cargo/env
+fi
+
+# FZF
+if is_installed "fzf"; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_CTRL_T_OPTS="
+    --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+  export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+else
+  echo "FZF is not installed"
+fi
+
+
+cd ~
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -1,0 +1,7 @@
+[user]
+	name = Philippe Lopes
+	email = philippe.lopes@live.fr
+[core]
+	editor = nvim
+[init]
+	defaultBranch = main

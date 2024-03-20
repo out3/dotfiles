@@ -1,0 +1,26 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+
+# ZSH
+[submodule "zsh/themes/powerlevel10k"]
+	path = zsh/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k
+	ignore = dirty
+
+# TMUX
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+	ignore = dirty
+
+[submodule "tmux/plugins/tmux-power"]
+	path = tmux/plugins/tmux-power
+	url = https://github.com/wfxr/tmux-power
+	ignore = dirty
+
+[submodule "tmux/plugins/tmux-sensible"]
+	path = tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+	ignore = dirty
