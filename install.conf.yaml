@@ -11,11 +11,7 @@
 
 # Tmux files
 - link:
-    ~/.tmux.conf: tmux/tmux.conf
-    ~/.tmux/plugins/tpm: tmux/plugins/tpm
-    ~/.tmux/plugins/tmux-power: tmux/plugins/tmux-power
-    ~/.tmux/plugins/tmux-sensible: tmux/plugins/tmux-sensible
-
+    ~/.config/tmux: tmux
 
 # Zsh files
 - link:
