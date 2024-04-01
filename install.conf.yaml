@@ -5,9 +5,14 @@
 
 - clean: ['~']
 
+# Create ~/developer folder ($DEV) and ~/.config ($XDG_CONFIG_HOME)
+- create:
+    - ~/developer
+    - ~/.config
+
 # Git files
 - link:
-    ~/.gitconfig: git/gitconfig
+    ~/.config/git/config: git/config
 
 # Tmux files
 - link:
@@ -15,11 +20,11 @@
 
 # Zsh files
 - link:
-    ~/.zshrc:
+    ~/.zshrc: # Zsh config
       path: zsh/zshrc
       force: true
-    ~/.p10k.zsh: zsh/p10k.zsh
-    ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/themes/powerlevel10k/
+    ~/.p10k.zsh: zsh/p10k.zsh # Theme config
+    ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/themes/powerlevel10k
 
 # Create dev/project folder ($DEV)
 - create:
