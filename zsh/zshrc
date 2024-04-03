@@ -18,7 +18,7 @@ is_installed() {
 }
 
 # PrivateZSH
-if [[ -r "~/.zsh.private" ]]; then
+if [[ -r ~/.zsh.private ]]; then
   source ~/.zsh.private
 fi
 
@@ -59,7 +59,7 @@ fi
 
 # Python
 ## VirtualEnvWrapper
-if [[ -r "~/.local/bin/virtualenvwrapper.sh" ]]; then
+if [[ -r ~/.local/bin/virtualenvwrapper.sh ]]; then
   export WORKON_HOME=$HOME/.env.python
   export VIRTUALENVWRAPPER_PYTHON=$(which python3.11)
   source ~/.local/bin/virtualenvwrapper.sh
@@ -70,8 +70,8 @@ export PNPM_HOME=$HOME/.env.pnpm
 export PATH=$PNPM_HOME:$PATH
 
 # Cargo (Rust)
-if [[ -r "~/.cargo/env" ]]; then
-  source ~/.cargo/env
+if [[ -r ~/.cargo/env ]]; then
+    source ~/.cargo/env
 fi
 
 # FZF
