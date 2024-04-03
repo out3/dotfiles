@@ -5,10 +5,11 @@
 
 - clean: ['~']
 
-# Create ~/developer folder ($DEV) and ~/.config ($XDG_CONFIG_HOME)
+# Create ~/developer folder ($DEV), ~/.config ($XDG_CONFIG_HOME), and ~/.undodir for Vim Persistent Undo
 - create:
     - ~/developer
     - ~/.config
+    - ~/.vim/undodir
 
 # Git files
 - link:
@@ -26,9 +27,9 @@
     ~/.p10k.zsh: zsh/p10k.zsh # Theme config
     ~/.oh-my-zsh/custom/themes/powerlevel10k: zsh/themes/powerlevel10k
 
-# Create dev/project folder ($DEV)
-- create:
-    - ~/developer
+# Nvim files
+- link:
+    ~/.config/nvim: nvim
     
 # Install git submodules
 - shell:
