@@ -5,13 +5,14 @@
 vim.keymap.set("n", "<leader>m", "<cmd>Lazy<cr>") -- Open Lazy Menu
 
 -- Explorer
-vim.keymap.set("n", "<leader>ex", vim.cmd.Ex) -- Open default explorer
+vim.keymap.set("n", "<leader>ex", "<cmd>Ex<cr>") -- Open default explorer
 vim.keymap.set("n", "<leader>ee", "<cmd>Neotree toggle reveal position=float<cr>") -- Open neotree
 
--- Bufferline (tabs)
-vim.keymap.set("n", "<C-h>", "<cmd>bn<cr>") -- Next buffer
-vim.keymap.set("n", "<C-l>", "<cmd>bp<cr>") -- Previous buffer
+-- Buffer (tabs)
+vim.keymap.set("n", "<C-t>", "<cmd>tabnew<cr>") -- Open new tab
 vim.keymap.set("n", "<C-w>", "<cmd>bd<cr>") -- Close current buffer (if no modification)
+vim.keymap.set("n", "<C-h>", "<cmd>bp<cr>") -- Previous buffer
+vim.keymap.set("n", "<C-l>", "<cmd>bn<cr>") -- Next buffer
 
 -- Telescope
 vim.keymap.set("n", "<leader>fp", "<cmd>Telescope brower_files<cr>") -- File brower
@@ -25,5 +26,7 @@ vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>") -- Display undo tree
 
 -- Text editing
 vim.keymap.set("n", "<C-s>", "<cmd>w<cr>") -- Save file
-vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==") -- move line up(n)
-vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==") -- move line down(n)
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==") -- Move line up
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==") -- Move line down
+vim.keymap.set("n", "<A-d>", "<S-v>yp")  -- Duplicate a line
+vim.keymap.set("v", "<A-d>", "yP") -- Duplicate multiple lines while on visual mode
