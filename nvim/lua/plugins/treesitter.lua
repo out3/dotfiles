@@ -18,6 +18,9 @@ return {
 			'javascript',
 			'typescript',
 			'tsx',
+            -- Terraform
+            --'hcl',
+            --'terraform',
 			-- Data format
 			'json',
 			'sql',

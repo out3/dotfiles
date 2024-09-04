@@ -29,6 +29,7 @@ setopt correct
 plugins=(
 	git
 	fzf # Search : CTRL+T file completion; ALT+C cd
+    poetry # Python package maanger
 )
 
 # OMZ + Theme
@@ -37,10 +38,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 
 # Custom aliase
-alias path="tr ':' '\n' <<< \"$PATH\"" # Display path line by line
+alias path="tr ':' '\n' <<< \"$PATH\"" # Display $PATH line by line
 alias ..="cd .."
 alias ...="cd ../.."
-alias v="nvim"
+alias v="nvim" # Neovim alias
 
 if is_installed "exa"; then
   alias ls="exa -g --icons" # Colored ls

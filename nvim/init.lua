@@ -1,5 +1,5 @@
 -- <leader> key
-vim.g.mapleader = " " 
+vim.g.mapleader = " "
 
 -- Lazy init
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Lazy load
 require("lazy").setup("plugins")
 
--- Load set settings 
+-- Load set settings
 require("core.set")
 
 -- Load key remap

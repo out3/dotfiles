@@ -8,7 +8,12 @@ return {
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
         -- Lua Snippets
-        'L3MON4D3/LuaSnip',
+        {
+            'L3MON4D3/LuaSnip',
+            version = "v2.*",
+            run = "make install_jsregexp",
+            dependencies = { "rafamadriz/friendly-snippets" }, --Terraform snippets
+        },
     },
 
     config = function()
@@ -29,7 +34,7 @@ return {
             'terraformls', -- Terraform
             'yamlls', -- YAML
         }
-        
+
         require('mason').setup()
         require('mason-lspconfig').setup({
             ensure_installed = servers_list
@@ -55,7 +60,7 @@ return {
             mapping = cmp.mapping.preset.insert({
                 ['<C-b>'] = cmp.mapping.scroll_docs(-4),
                 ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<C-y>'] = cmp.mapping.complete(),
                 ['<C-e>'] = cmp.mapping.abort(),
                 ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
                 ["<Tab>"] = cmp.mapping(function(fallback)
@@ -84,20 +89,22 @@ return {
                     { name = 'buffer' },
                 })
         })
+
+        local on_attach_callback = function(_, buffer)
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = buffer })
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = buffer })
+
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover", buffer = buffer })
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = buffer })
+        end
         -- Completing Settings end
 
-        --        local capabilities = NULL
-        --        local on_attach_callback = function(_, _)
-        --          vim.keymap.set()
-        --    end
-
         -- Setup servers
-        lsp_config.rust_analyzer.setup {}
         for _, value in pairs(servers_list) do
             local server = lsp_config[value]
-            server.setup {
-                --                capabilities = capabilities,
-                --          on_attach = on_attach_callback,
+            server.setup{
+                capabilities = capabilities,
+                on_attach = on_attach_callback,
             }
         end
     end
