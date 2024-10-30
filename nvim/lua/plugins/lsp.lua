@@ -24,7 +24,7 @@ return {
             'dockerls', -- Docker
             'docker_compose_language_service', -- Docker Compose
             'html', -- HTML
-            'tsserver', -- JS/TS
+            'ts_ls', -- JS/TS
             'lua_ls', -- Lua
             'marksman', -- Markdown
             'pyright', -- Python
