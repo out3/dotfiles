@@ -8,6 +8,7 @@ tmux source-file ~/.tmux.conf
 ```
 # Prerequisite
 - CLI :
+    - [cli-trash](https://github.com/andreafrancia/trash-cli)
     - [exa](https://github.com/ogham/exa)
     - [fd](https://github.com/sharkdp/fd)
     - [fzf](https://github.com/junegunn/fzf)
@@ -35,7 +36,7 @@ sudo apt update
 sudo apt install -y curl git
 
 # CLI
-sudo apt install -y tmux exa fzf fd-find ripgrep tree thefuck
+sudo apt install -y tmux exa fzf fd-find ripgrep trash-cli tree thefuck
 
 # Python3.11 + env wrapper
 sudo add-apt-repository ppa:deadsnakes/ppa -y

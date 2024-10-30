@@ -42,6 +42,7 @@ alias path="tr ':' '\n' <<< \"$PATH\"" # Display $PATH line by line
 alias ..="cd .."
 alias ...="cd ../.."
 alias v="nvim" # Neovim alias
+alias rm="trash-put" # Use trash-cli to move file to bin instead of deleting them
 
 if is_installed "exa"; then
   alias ls="exa -g --icons" # Colored ls
