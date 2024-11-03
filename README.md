@@ -18,6 +18,7 @@ tmux source-file ~/.tmux.conf
     - [ripgrep](https://github.com/BurntSushi/ripgrep)
     - [tmux](https://github.com/tmux/tmux/wiki/Installing)
     - tree
+    - zip
     - [Zsh](https://www.zsh.org/)
 - Python
     - [python3](https://www.python.org/)
@@ -36,7 +37,7 @@ sudo apt update
 sudo apt install -y curl git
 
 # CLI
-sudo apt install -y tmux exa fzf fd-find ripgrep trash-cli tree thefuck
+sudo apt install -y zip tmux exa fzf fd-find ripgrep trash-cli tree thefuck
 
 # Python3.11 + env wrapper
 sudo add-apt-repository ppa:deadsnakes/ppa -y
