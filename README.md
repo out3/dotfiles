@@ -2,7 +2,6 @@ Installation pour Arch-Linux
 
 # Prerequisite
 - CLI :
-    - [cli-trash](https://github.com/andreafrancia/trash-cli)
     - [exa](https://github.com/ogham/exa)
     - [fd](https://github.com/sharkdp/fd)
     - [fzf](https://github.com/junegunn/fzf)
@@ -11,14 +10,13 @@ Installation pour Arch-Linux
     - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)
     - [ripgrep](https://github.com/BurntSushi/ripgrep)
     - [tmux](https://github.com/tmux/tmux/wiki/Installing)
+    - [trash-cli](https://github.com/andreafrancia/trash-cli)
     - tree
     - zip
     - [Zsh](https://www.zsh.org/)
 - Python
     - [python3](https://www.python.org/)
     - [pip3](https://pypi.org/project/pip/)
-	- [virtualenv](https://pypi.org/project/virtualenv/)
-	- [virtualenvwrapper](https://pypi.org/project/virtualenvwrapper/)
 - NodeJS
 	- [node + npm](https://github.com/nodesource/distributions)
 	- [pnpm](https://github.com/pnpm/pnpm)
@@ -30,7 +28,7 @@ sudo pacman -Syu --noconfirm
 
 # Install prerequisites
 sudo pacman -Sy --noconfirm \
-    curl exa fd fzf git lazygit ripgrep tmux tree zip zsh \
+    curl exa fd fzf git lazygit ripgrep tmux trash-cli tree zip zsh \
     python python-pip \
     nodejs npm pnpm \
 
