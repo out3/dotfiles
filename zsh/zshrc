@@ -14,7 +14,7 @@ fi
 
 # Function to check if a package is installed
 is_installed() {
-    pacman -Q "$1" 2>/dev/null
+    pacman -Q "$1" 1>/dev/null 2>/dev/null
 }
 
 # PrivateZSH
