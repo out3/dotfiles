@@ -9,17 +9,17 @@ export DEV="$HOME/developer"
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Function to check if a package is installed
 is_installed() {
-     dpkg --verify "$1" 2>/dev/null
+    pacman -Q "$1" 1>/dev/null 2>/dev/null
 }
 
 # PrivateZSH
 if [[ -r ~/.zsh.private ]]; then
-  source ~/.zsh.private
+    source ~/.zsh.private
 fi
 
 # Plugin
@@ -27,9 +27,7 @@ unsetopt correct_all
 setopt correct
 
 plugins=(
-	git
-	fzf # Search : CTRL+T file completion; ALT+C cd
-    poetry # Python package maanger
+    fzf # Search : CTRL+T file completion; ALT+C cd
 )
 
 # OMZ + Theme
@@ -41,30 +39,26 @@ source $ZSH/oh-my-zsh.sh
 alias path="tr ':' '\n' <<< \"$PATH\"" # Display $PATH line by line
 alias ..="cd .."
 alias ...="cd ../.."
-alias v="nvim" # Neovim alias
-alias rm="trash-put" # Use trash-cli to move file to bin instead of deleting them
+
+if is_installed "nvim"; then
+    alias v="nvim" # Neovim alias
+else
+    echo "neovim is not installed"
+fi
+
+if is_installed "trash-cli"; then
+    alias rm="trash-put" # Use trash-cli to move file to bin instead of deleting them
+else
+    echo "trash-cli is not installed"
+fi
 
 if is_installed "exa"; then
-  alias ls="exa -g --icons" # Colored ls
-  alias ll="ls -l" # Format
-  alias la="ls -la" # Diplay hidden files
-  alias ld="ls -ld */" # Display directories only
+    alias ls="exa -g --icons" # Colored ls
+    alias ll="ls -l" # Format
+    alias la="ls -la" # Diplay hidden files
+    alias ld="ls -ld */" # Display directories only
 else
-  echo "exa is not installed"
-fi
-
-if is_installed "fd-find"; then
-  alias fd="fdfind" # Better find, used by FZF
-else
-  echo "fd-find is not installed"
-fi
-
-# Python
-## VirtualEnvWrapper
-if [[ -r ~/.local/bin/virtualenvwrapper.sh ]]; then
-  export WORKON_HOME=$HOME/.env.python
-  export VIRTUALENVWRAPPER_PYTHON=$(which python3.11)
-  source ~/.local/bin/virtualenvwrapper.sh
+    echo "exa is not installed"
 fi
 
 # PNPM
@@ -78,14 +72,14 @@ fi
 
 # FZF
 if is_installed "fzf"; then
-  export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_CTRL_T_OPTS="
+    export FZF_DEFAULT_COMMAND='rg --files'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_CTRL_T_OPTS="
     --preview 'bat -n --color=always {}'
     --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-  export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+    export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
 else
-  echo "FZF is not installed"
+    echo "FZF is not installed"
 fi
 
 

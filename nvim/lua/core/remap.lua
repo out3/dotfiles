@@ -41,3 +41,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv") -- Move line down (visual mode)
 
 vim.keymap.set("n", "<C-d>", "<S-v>yp")  -- Duplicate a line
 vim.keymap.set("i", "<C-d>", "yP") -- Duplicate multiple lines while on visual mode
+
+-- Diagnostics
+vim.keymap.set('n', '<leader>do', '<cmd> lua vim.diagnostic.open_float()<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dO', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
