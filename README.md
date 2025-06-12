@@ -17,6 +17,7 @@ Installation pour Arch-Linux
 - Python
     - [python3](https://www.python.org/)
     - [pip3](https://pypi.org/project/pip/)
+    - [uv](https://github.com/astral-sh/uv)
 - NodeJS
 	- [node + npm](https://github.com/nodesource/distributions)
 	- [pnpm](https://github.com/pnpm/pnpm)
@@ -29,7 +30,7 @@ sudo pacman -Syu --noconfirm
 # Install prerequisites
 sudo pacman -Sy --noconfirm \
     curl exa fd fzf git lazygit ripgrep tmux trash-cli tree unzip zip zsh \
-    python python-pip \
+    python python-pip uv \
     nodejs npm pnpm \
 
 # Install Oh-My-Zsh
