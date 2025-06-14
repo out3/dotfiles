@@ -14,6 +14,9 @@ return {
             run = "make install_jsregexp",
             dependencies = { "rafamadriz/friendly-snippets" }, --Terraform snippets
         },
+        'saadparwaiz1/cmp_luasnip',
+        -- Other
+        'hrsh7th/cmp-path',
     },
 
     config = function()
@@ -85,9 +88,9 @@ return {
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
-            }, {
-                    { name = 'buffer' },
-                })
+                { name = 'path' },
+                { name = 'buffer' },
+            })
         })
 
         local on_attach_callback = function(_, buffer)

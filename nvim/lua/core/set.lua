@@ -33,3 +33,10 @@ vim.api.nvim_create_autocmd({"BufWritePre"}, {
     vim.lsp.buf.format()
   end,
 })
+
+-- Ansible/Yaml
+vim.filetype.add({
+    extension = {
+        yml = 'yaml.ansible'
+    }
+})
