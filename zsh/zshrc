@@ -18,9 +18,9 @@ is_installed() {
     pacman -Q "$1" 1>/dev/null 2>/dev/null
 }
 
-# PrivateZSH
-if [[ -r ~/.zsh.private ]]; then
-    source ~/.zsh.private
+# Local Config
+if [[ -r ~/.zsh.local ]]; then
+    source ~/.zsh.local
 fi
 
 # Plugin
@@ -28,7 +28,7 @@ unsetopt correct_all
 setopt correct
 
 plugins=(
-    fzf # Search : CTRL+T file completion; ALT+C cd
+    fzf # Search : CTRL+T file completion; ALT+C cd; CTRL+R history
 )
 
 # OMZ + Theme
@@ -36,7 +36,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 source $ZSH/oh-my-zsh.sh
 
-# Custom aliase
+# Custom aliases
 alias path="tr ':' '\n' <<< \"$PATH\"" # Display $PATH line by line
 alias ..="cd .."
 alias ...="cd ../.."

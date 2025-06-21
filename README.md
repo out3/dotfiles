@@ -30,6 +30,7 @@ sudo pacman -Syu --noconfirm
 # Install prerequisites
 sudo pacman -Sy --noconfirm \
     curl exa fd fzf git lazygit ripgrep tmux trash-cli tree unzip zip zsh \
+    neovim \
     python python-pip uv \
     nodejs npm pnpm \
 
