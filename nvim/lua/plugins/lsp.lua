@@ -6,6 +6,8 @@ return {
         'neovim/nvim-lspconfig',
         -- Completion
         'hrsh7th/nvim-cmp',
+        'hrsh7th/nvim-buffer',
+        'hrsh7th/cmp-path',
         'hrsh7th/cmp-nvim-lsp',
         -- Lua Snippets
         {
@@ -16,9 +18,8 @@ return {
         },
         'saadparwaiz1/cmp_luasnip',
         -- Other
-        'hrsh7th/cmp-path',
+        'onsails/lspkind.nvim', -- vscode like pictograms
     },
-
     config = function()
         local servers_list = {
             'ansiblels', -- Ansible
@@ -90,6 +91,7 @@ return {
                 { name = 'luasnip' }, -- For luasnip users.
                 { name = 'path' },
                 { name = 'buffer' },
+                { name = 'lspkind' },
             })
         })
 

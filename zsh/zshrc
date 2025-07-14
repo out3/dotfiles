@@ -54,7 +54,7 @@ else
 fi
 
 if is_installed "exa"; then
-    alias ls="exa -g --icons" # Colored ls
+    alias ls="exa -g --icons --group-directories-first" # Colored ls
     alias ll="ls -l" # Format
     alias la="ls -la" # Diplay hidden files
     alias ld="ls -ld */" # Display directories only

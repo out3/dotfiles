@@ -8,6 +8,9 @@ vim.keymap.set("n", "<leader>bg", ':exec &bg=="light"? "set bg=dark" : "set bg=l
 -- Lazy Menu
 vim.keymap.set("n", "<leader>m", "<cmd>Lazy<cr>") -- Open Lazy Menu
 
+-- Mason LSP
+vim.keymap.set("n", "<leader>M", "<cmd>Mason<cr>") -- Open Lazy Menu
+
 -- Explorer
 vim.keymap.set("n", "<leader>ex", "<cmd>Ex<cr>") -- Open default explorer
 vim.keymap.set("n", "<leader>ee", "<cmd>Neotree toggle reveal position=float<cr>") -- Open neotree
@@ -43,5 +46,8 @@ vim.keymap.set("n", "<C-d>", "<S-v>yp")  -- Duplicate a line
 vim.keymap.set("i", "<C-d>", "yP") -- Duplicate multiple lines while on visual mode
 
 -- Diagnostics
-vim.keymap.set('n', '<leader>do', '<cmd> lua vim.diagnostic.open_float()<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>dO', '<cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
+
+-- Aerial
+vim.keymap.set('n', '<leader>ea', '<cmd>AerialToggle!<cr>')
