@@ -26,6 +26,15 @@ vim.opt.autoread = true -- Read files when changed outside of nvim
 vim.opt.autowrite = true -- Auto save files when changed
 vim.opt.encoding = "UTF-8" -- Default encoding
 
+-- Folds
+vim.o.foldenable = true
+vim.o.foldlevel = 99
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.o.foldtext = ''
+vim.opt.foldcolumn = '0'
+vim.opt.fillchars:append({fold = ' '})
+
 -- Terraformls
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
   pattern = {"*.tf", "*.tfvars"},
